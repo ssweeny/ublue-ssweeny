@@ -47,6 +47,7 @@ modules:
       # Fonty goodness
       - jetbrains-mono-fonts-all
       - mozilla-fira-mono-fonts
+      - ubuntumono-nerd-fonts
       - powerline-fonts
       # My own additions
       - neovim
