@@ -1,11 +1,11 @@
 # image will be published to ghcr.io/<user>/<name>
-name: startingpoint
+name: ublue-ssweeny
 # description will be included in the image's metadata
-description: A starting point for further customization of uBlue images. Make your own! https://ublue.it/making-your-own/
+description: ssweeny's ublue image!
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 39 # latest is also supported if you want new updates ASAP
+image-version: latest # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -23,9 +23,38 @@ modules:
   - type: rpm-ostree
     repos:
       # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://terra.fyralabs.com/terra.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/zerotier-one/repo/fedora-%OS_VERSION%/atim-zerotier-one-fedora-%OS_VERSION%.repo
     install:
-      # - micro
-      # - starship
+      # Some additions from bluefin
+      - ddccontrol
+      - ddccontrol-db
+      - ddccontrol-gtk
+      - gnome-shell-extension-appindicator
+      - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-blur-my-shell
+      - gnome-shell-extension-gsconnect
+      - input-remapper
+      - libgda
+      - libgda-sqlite
+      - libratbag-ratbagd
+      - nautilus-gsconnect
+      - pulseaudio-utils
+      - tmux
+      - xprop
+      - yaru-theme
+      - zsh
+      # Fonty goodness
+      - jetbrains-mono-fonts-all
+      - mozilla-fira-mono-fonts
+      - ubuntumono-nerd-fonts
+      - powerline-fonts
+      # My own additions
+      - neovim
+      - bat
+      - alacritty
+      - btop
+      - zerotier-one
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -49,8 +78,12 @@ modules:
   - type: yafti # if included, yafti and it's dependencies (pip & libadwaita)
                 #  will be installed and set up
     custom-flatpaks: # this section is optional
-      # - Celluloid: io.github.celluloid_player.Celluloid
-      # - Krita: org.kde.krita
+      - NewsFlash: com.gitlab.newsflash
+      - Tuba: dev.geopjr.Tuba
+      - Joplin: net.cozic.joplin_desktop
+      - GNOME Web: org.gnome.Epiphany
+      - Geary: org.gnome.Geary
+      - Apostrophe: me.gitlab.somas.Apostrophe
 
   - type: script
     scripts:
