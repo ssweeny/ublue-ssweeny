@@ -47,7 +47,6 @@ modules:
       # Fonty goodness
       - jetbrains-mono-fonts-all
       - mozilla-fira-mono-fonts
-      - ubuntumono-nerd-fonts
       - powerline-fonts
       # My own additions
       - neovim
@@ -78,6 +77,12 @@ modules:
       # - laptop # installs TLP and configures your system for laptop usage
       # - flatpaksync # allows synchronization of user-installed flatpaks, see separate documentation section
 
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - UbuntuMono
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
 
   - type: yafti # if included, yafti and it's dependencies (pip & libadwaita)
                 #  will be installed and set up
