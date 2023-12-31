@@ -55,6 +55,8 @@ modules:
       - alacritty
       - btop
       - zerotier-one
+      - gnome-shell-extension-pop-shell
+      - gnome-shell-extension-pop-shell-shortcut-overrides
       # Add evolution to enable some CalDAV/CardDAV magic
       - evolution
     remove:
