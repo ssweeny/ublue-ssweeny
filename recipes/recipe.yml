@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: bluefin-dx-ssweeny
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: Bluefin DX with some System76 nonsense added to support my hardware
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/bluefin-dx
@@ -16,10 +16,21 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-%OS_VERSION%/szydell-system76-fedora-%OS_VERSION%.repo
     install:
-      - system76-power
-      - system76-io-dkms
       - gnome-shell-extension-pop-shell
       - gnome-shell-extension-pop-shell-shortcut-overrides
+      - system76-firmware
+      - system76-power
+
+  - type: systemd
+    system:
+      enabled:
+        - com.system76.PowerDaemon.service
+      masked:
+        - upower.service
+
+  - type: script
+    scripts:
+    - system76-io-akmod.sh
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
