@@ -21,4 +21,5 @@ modules:
 
   - type: rpm-ostree
     install:
+      - bluefin # Need mah dino wallpapers
       - zsh
