@@ -1,12 +1,12 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: bluefin-dx-system76
+name: bazzite-system76
 # description will be included in the image's metadata
-description: Bluefin DX with some System76 nonsense added to support my hardware
+description: Bazzite with some System76 nonsense added to support my hardware
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/bluefin-dx
+base-image: ghcr.io/ublue-os/bazzite-gnome
 image-version: stable # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -14,3 +14,11 @@ image-version: stable # latest is also supported if you want new updates ASAP
 modules:
   - from-file: recipe-common.yml
 
+  - type: akmods
+    base: bazzite
+    install:
+      - system76-io
+
+  - type: rpm-ostree
+    install:
+      - zsh
