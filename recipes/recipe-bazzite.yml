@@ -29,6 +29,7 @@ modules:
       - bluefin-fastfetch
       - bluefin-logos
       - bluefin-schemas
+      - gnome-shell-extension-dash-to-dock
       - zsh
     remove:
       - fedora-logos # Obsoleted by bluefin-logos
