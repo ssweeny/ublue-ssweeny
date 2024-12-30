@@ -23,5 +23,10 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
     install:
-      - bluefin # Need mah dino wallpapers
+      - bluefin-backgrounds # Need mah dino wallpapers
+      - bluefin-cli-logos
+      - bluefin-faces
+      - bluefin-fastfetch
+      - bluefin-logos
+      - bluefin-schemas
       - zsh
