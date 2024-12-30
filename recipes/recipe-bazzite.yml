@@ -30,3 +30,5 @@ modules:
       - bluefin-logos
       - bluefin-schemas
       - zsh
+    remove:
+      - fedora-logos # Obsoleted by bluefin-logos
