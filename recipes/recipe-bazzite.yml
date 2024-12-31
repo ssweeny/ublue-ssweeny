@@ -30,6 +30,7 @@ modules:
       - bluefin-logos
       - bluefin-schemas
       - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-tailscale-gnome-qs
       - zsh
     remove:
       - fedora-logos # Obsoleted by bluefin-logos
