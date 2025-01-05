@@ -22,8 +22,9 @@ jobs:
       matrix:
         recipe:
           # !! Add your recipes here 
-          - recipe-bluefin.yml
           - recipe-bazzite.yml
+          - recipe-bluefin.yml
+          - recipe-bluefin-dx-hwe.yml
     steps:
        # the build is fully handled by the reusable github action
       - name: Build Custom Image

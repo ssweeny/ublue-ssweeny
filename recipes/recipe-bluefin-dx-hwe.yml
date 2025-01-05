@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: bluefin-dx-hwe-system76
+# description will be included in the image's metadata
+description: Bluefin DX with some System76 nonsense added to support my hardware
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/bluefin-dx-hwe
+image-version: latest
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - from-file: recipe-common.yml
+
+  - type: akmods
+    base: bazzite
+    install:
+      - system76-io
+
