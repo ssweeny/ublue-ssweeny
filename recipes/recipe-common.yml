@@ -13,6 +13,7 @@ modules:
     system:
       enabled:
         - com.system76.PowerDaemon.service
+        - system76-firmware-daemon
       masked:
         - upower.service
 
