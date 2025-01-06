@@ -22,7 +22,6 @@ jobs:
       matrix:
         recipe:
           # !! Add your recipes here 
-          - recipe-bazzite.yml
           - recipe-bluefin.yml
           - recipe-bluefin-dx-hwe.yml
     steps:
