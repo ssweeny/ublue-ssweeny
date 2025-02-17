@@ -2,7 +2,6 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-%OS_VERSION%/szydell-system76-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/ssweeny/system76-hwe/repo/fedora-%OS_VERSION%/ssweeny-system76-hwe-fedora-%OS_VERSION%.repo
     install:
       - gnome-shell-extension-pop-shell
       - gnome-shell-extension-pop-shell-shortcut-overrides
