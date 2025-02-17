@@ -1,8 +1,8 @@
 # ublue-ssweeny &nbsp; [![bluebuild build badge](https://github.com/ssweeny/ublue-ssweeny/actions/workflows/build.yml/badge.svg)](https://github.com/ssweeny/ublue-ssweeny/actions/workflows/build.yml)
-Custom images based on [Universal Blue](https://universal-blue.org/):
+Custom images based on [Universal Blue](https://universal-blue.org/)'s [Project Bluefin](https://projectbluefin.io/) and with some System76 drivers and a few niceties from Pop!_OS added.
 
-* A Bazzite-based image with Bluefin artwork and support for the System76 Thelio I/O board
-* A Bluefin-based image with some niceties borrowed from Pop!_OS
+* **`bluefin-dx-system76`**: Based on `bluefin:stable`.
+* **`bluefin-dx-hwe-system76`**: Based on `bluefin-hwe:latest`
 
 ## Installation
 
@@ -10,7 +10,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/ssweeny/bazzite-system76:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/ssweeny/bluefin-dx-hwe-system76:latest
   ```
   ** OR **
   ```
