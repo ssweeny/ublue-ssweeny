@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Inspect image and extract label
         run: |
-          LABEL_VALUE=${{ matrix.label-prefix }}-$(skopeo inspect docker://ghcr.io/ublue-os/${{ matrix.base-image }}:${{ matrix.image-tag }} | jq -r '"\(.Labels["org.opencontainers.image.version"] | split(".")[0])-\(.Labels["ostree.linux"])"')
+          LABEL_VALUE=${{ matrix.label-prefix }}-$(skopeo inspect docker://ghcr.io/ublue-os/${{ matrix.base-image }}:${{ matrix.image-tag }} | jq -r '"\(.Labels["org.opencontainers.image.version"] | split(".")[0] | split("-")[-1])-\(.Labels["ostree.linux"])"')
           echo "kernel_version=$LABEL_VALUE" >> $GITHUB_ENV
       - name: Display extracted label
         run: |
