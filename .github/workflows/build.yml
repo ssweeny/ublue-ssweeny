@@ -29,7 +29,26 @@ jobs:
           # !! Add your recipes here 
           - recipe-bluefin.yml
           - recipe-bluefin-dx-hwe.yml
+        include:
+          - recipe: recipe-bluefin.yml
+            label-prefix: coreos-stable
+            base-image: bluefin-dx
+            image-tag: stable
+          - recipe: recipe-bluefin-dx-hwe.yml
+            label-prefix: bazzite
+            base-image: bluefin-dx-hwe
+            image-tag: latest
     steps:
+      - name: Inspect image and extract label
+        run: |
+          LABEL_VALUE=${{ matrix.label-prefix }}-$(skopeo inspect docker://ghcr.io/ublue-os/${{ matrix.base-image }}:${{ matrix.image-tag }} | jq -r '"\(.Labels["org.opencontainers.image.version"] | split(".")[0])-\(.Labels["ostree.linux"])"')
+          echo "kernel_version=$LABEL_VALUE" >> $GITHUB_ENV
+      - name: Display extracted label
+        run: |
+          echo "Extracted ostree.linux label: $kernel_version"
+      - name: Modify file with extracted label
+        run: |
+          sed -i "s/KERNEL_VERSION/$kernel_version/g" ./recipes/recipe-akmods.yml
        # the build is fully handled by the reusable github action
       - name: Build Custom Image
         uses: blue-build/github-action@v1.8

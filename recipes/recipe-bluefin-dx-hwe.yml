@@ -16,10 +16,5 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/ssweeny/system76-hwe/repo/fedora-%OS_VERSION%/ssweeny-system76-hwe-fedora-%OS_VERSION%.repo
 
-  - type: akmods
-    base: bazzite
-    install:
-      - system76-io
-      - system76-driver
-
+  - from-file: recipe-akmods.yml
   - from-file: recipe-common.yml
