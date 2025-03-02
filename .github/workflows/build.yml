@@ -39,6 +39,7 @@ jobs:
             base-image: bluefin-dx-hwe
             image-tag: latest
     steps:
+      - uses: actions/checkout@v4
       - name: Inspect image and extract label
         run: |
           LABEL_VALUE=${{ matrix.label-prefix }}-$(skopeo inspect docker://ghcr.io/ublue-os/${{ matrix.base-image }}:${{ matrix.image-tag }} | jq -r '"\(.Labels["org.opencontainers.image.version"] | split(".")[0])-\(.Labels["ostree.linux"])"')
@@ -57,6 +58,7 @@ jobs:
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
+          skip_checkout: true
 
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
