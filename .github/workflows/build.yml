@@ -27,13 +27,13 @@ jobs:
       matrix:
         recipe:
           # !! Add your recipes here 
-          - recipe-bluefin.yml
+          #- recipe-bluefin.yml
           - recipe-bluefin-dx-hwe.yml
         include:
-          - recipe: recipe-bluefin.yml
-            label-prefix: coreos-stable
-            base-image: bluefin-dx
-            image-tag: stable
+          #- recipe: recipe-bluefin.yml
+          #  label-prefix: coreos-stable
+          #  base-image: bluefin-dx
+          #  image-tag: stable
           - recipe: recipe-bluefin-dx-hwe.yml
             label-prefix: bazzite
             base-image: bluefin-dx-hwe
