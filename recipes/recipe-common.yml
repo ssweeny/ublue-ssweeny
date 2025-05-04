@@ -1,12 +1,16 @@
 modules:
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      - https://copr.fedorainfracloud.org/coprs/szydell/system76/repo/fedora-%OS_VERSION%/szydell-system76-fedora-%OS_VERSION%.repo
+      cleanup: true
+      copr:
+        enable:
+          - szydell/system76
     install:
-      - gnome-shell-extension-pop-shell
-      - gnome-shell-extension-pop-shell-shortcut-overrides
-      - system76-firmware
-      - system76-power
+      packages:
+        - gnome-shell-extension-pop-shell
+        - gnome-shell-extension-pop-shell-shortcut-overrides
+        - system76-firmware
+        - system76-power
 
   - type: systemd
     system:
