@@ -12,9 +12,11 @@ image-version: latest
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      - https://copr.fedorainfracloud.org/coprs/ssweeny/system76-hwe/repo/fedora-%OS_VERSION%/ssweeny-system76-hwe-fedora-%OS_VERSION%.repo
+      copr:
+        enable:
+          - ssweeny/system76-hwe
 
   - from-file: recipe-akmods.yml
   - from-file: recipe-common.yml
